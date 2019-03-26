@@ -5,7 +5,7 @@ import seaborn as sn
 
 
 
-data = pd.read_csv('cutomize_offerings.csv')
+data = pd.read_csv('customize_offerings.csv')
 data.info()
 
 x=data.values
@@ -37,12 +37,13 @@ plt.ylabel("wss value")
 
 kmeans=KMeans(n_clusters=4)
 kmeans.fit(x_scaled)
-y_kmeans=kmeans.predict(x_scaled)
+y_kmeans=kmeans.predict(x_scaled)    #predicts the cluster group for each row
 
 centers = kmeans.cluster_centers_
 centers
 
-plt.scatter(x_scaled[:, 0], x_scaled[:, 1], c=y_kmeans)
+plt.scatter(x_scaled[:, 0], x_scaled[:, 1], c=y_kmeans)  #c means color
 plt.scatter(centers[:, 0], centers[:, 1], c='black', s=200, alpha=0.5)
 plt.xlabel('Premium savings are important')
-plt.ylabel('Agent not important')
+plt.ylabel('Agent not important') 
+
